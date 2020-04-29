@@ -56,9 +56,10 @@ fruit_MW = [mInd wInd];
 %RTLoad_MW: same as RespLoad_MW but stores response times.
 
 
-FruitTable %organize and agregate data into tables (CStable.csv, MWtable.csv)
 FruitAssociations %make color-concept association plots
 PlotFruitLAB %plot experiment colors in CIELAB space
+
+FruitTable %organize and agregate data into tables (CStable.csv, MWtable.csv)
 FruitLayers %plot predictors and data
 
 

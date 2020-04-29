@@ -1,22 +1,29 @@
 %% Plot color-concept association strengths for chosen fruits
 
 
-figure (5)
-FruitAssocBars(FruitAssoc, UW58.Lab, color_CS, 4, 6, 'Cantaloupe', 'Strawberry')
+%Experiment 1: Cantaloupe and Strawberry
+figure (1)
+FruitAssocBars(FruitAssoc, UW58.Lab, color_CS, fruit_CS, 'Cantaloupe', 'Strawberry')
 
-figure(53)
-FruitAssocBars(FruitAssoc, UW58.Lab, color_MW, 1, 2, 'Mango', 'Watermelon')
+%Experiment 2: Mango and Watermelon
+figure(2)
+FruitAssocBars(FruitAssoc, UW58.Lab, color_MW, fruit_MW, 'Mango', 'Watermelon')
 
 
 
-
-function [ ] = FruitAssocBars(Ratings, Colmat, chosenColors, F1, F2, F1name, F2name)
+%% FruitAssocBars function to make plots
+function [ ] = FruitAssocBars(Ratings, AllColors, Colors, Fruits, F1name, F2name)
+% Ratings is the data
+% AllColors is the UW-58 colors
+% Colors are the colors in the experiment
+% Fruits are the fruits in the experiment  
+% F1name and F2name are the names of the two fruits in the experiment
 
 clf
 n = size(Ratings,3);
 
-F1_ratingsAll = squeeze(Ratings(chosenColors,F1,:)); 
-F2_ratingsAll = squeeze(Ratings(chosenColors,F2,:));
+F1_ratingsAll = squeeze(Ratings(Colors,Fruits(1),:)); 
+F2_ratingsAll = squeeze(Ratings(Colors,Fruits(2),:));
 
 SEM1 = std(F1_ratingsAll')/sqrt(n);
 SEM2 = std(F2_ratingsAll')/sqrt(n);
@@ -24,13 +31,12 @@ SEM2 = std(F2_ratingsAll')/sqrt(n);
 F1_ratings = mean(F1_ratingsAll,2)'; 
 F2_ratings = mean(F2_ratingsAll,2)';
 
-ClrsLAB = Colmat(chosenColors,:);
+ClrsLAB = AllColors(Colors,:);
 ClrsRGB = lab2rgb(ClrsLAB);
 
-chosenFruits = [F1 F2];
 hold on
 
-subplot(1,3,1)
+subplot(1,2,1)
     hold on
     for i = 1:8
         bar(i, F1_ratings(i), 'FaceColor', ClrsRGB(i,:))
@@ -45,7 +51,7 @@ subplot(1,3,1)
     ylim([0 1])
     xlim([0 9])
     
-subplot(1,3,2)
+subplot(1,2,2)
     hold on
     for i = 1:8
         bar(i, F2_ratings(i), 'FaceColor', ClrsRGB(i,:))

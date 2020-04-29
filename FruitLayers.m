@@ -1,8 +1,8 @@
 
 
+% Plot predictors and data for both experiments
 
-
-
+%% codes specifying variable types
 vAcc = 1;
 vSemDist = 2;
 vPercDist = 3;
@@ -11,16 +11,15 @@ vAssoc = 5;
 vAccPred = 6;
 vRTPred = 7;
 
-
+% color notation for x-axis
 CSx = {'c_1'; 'c_2'; 'c_3'; 'c_4'; 's_4'; 's_3'; 's_2'; 's_1'};
 MWx = {'m_1'; 'm_2'; 'm_3'; 'm_4'; 'w_4'; 'w_3'; 'w_2'; 'w_1'};
 
 %% Semantic and Perceptual distance
-figure (99)
+figure (5)
 subplot(2,2,1)
     plotFruitLayers(Tagg_CS(1:28,:), UW58, color_CS, 'dS', vSemDist, CSx)
 
-    
 subplot(2,2,3)
     plotFruitLayers(Tagg_CS(1:28,:), UW58, color_CS, 'dE', vPercDist, CSx)
     
@@ -32,16 +31,15 @@ subplot(2,2,4)
     plotFruitLayers(Tagg_MW(1:28,:), UW58, color_MW, 'dE', vPercDist, MWx)
         
 set(gcf,'Position',[    377   975   571   324]) 
-%% Association strength between 'correct' answer and the target object
-figure(999)
+
+%% Association strength between correct answer and the target object
+figure(6)
 subplot(1,4,1)
     plotFruitLayers(Tagg_CS(1:28,:), UW58, color_CS, 'Tcorrect', vAssoc, CSx)
 
 subplot(1,4,2)
     plotFruitLayers(Tagg_CS(29:56,:), UW58, color_CS, 'Tcorrect', vAssoc, CSx)    
- 
-    
-    
+  
 subplot(1,4,3)
     plotFruitLayers(Tagg_MW(1:28,:), UW58, color_MW, 'Tcorrect', vAssoc, MWx)
 
@@ -52,43 +50,43 @@ set(gcf,'Position',[638   988   689   124])
     
     
 %%  PLOT DATA  
-figure (100)
-subplot(4,2,1)
+
+figure (7) % Cantaloupe/Strawberry
+
+% accuracy
+subplot(4,2,1) %cantaloupe
     plotFruitLayers(Tagg_CS(1:28,:), UW58, color_CS, 'accuracy', vAcc, CSx)
 
-subplot(4,2,2)
+subplot(4,2,2) %strawberry
     plotFruitLayers(Tagg_CS(29:56,:), UW58, color_CS, 'accuracy', vAcc, CSx)
 
-subplot(4,2,5)
+% RT
+subplot(4,2,5) %cantaloupe
     plotFruitLayers(Tagg_CS(1:28,:), UW58, color_CS, 'resptime', vRT, CSx)
 
-subplot(4,2,6)
+subplot(4,2,6) %straberry
     plotFruitLayers(Tagg_CS(29:56,:), UW58, color_CS, 'resptime', vRT, CSx)
   
 set(gcf,'Position',[  1065         818         335         482]) 
     
-figure (101)
-subplot(4,2,1)
+
+figure (8) % Mango/Watermelon
+% accuracy
+subplot(4,2,1) %mango
     plotFruitLayers(Tagg_MW(1:28,:), UW58, color_MW, 'accuracy', vAcc, MWx)
 
-subplot(4,2,2)
+subplot(4,2,2) %watermelon
     plotFruitLayers(Tagg_MW(29:56,:), UW58, color_MW, 'accuracy', vAcc, MWx)
 
-subplot(4,2,5)
+% RT
+subplot(4,2,5) %mango
     plotFruitLayers(Tagg_MW(1:28,:), UW58, color_MW, 'resptime', vRT, MWx)
 
-subplot(4,2,6)
+subplot(4,2,6) %watermelon
     plotFruitLayers(Tagg_MW(29:56,:), UW58, color_MW, 'resptime', vRT, MWx)
         
 set(gcf,'Position',[  1065         818         335         482]) 
 
-
-figure (101111)
-subplot(1,2,1)
-    plotFruitLayers(Tagg_MW(1:28,:), UW58, color_MW, 'accuracy', vAcc, MWx)
-
-subplot(1,2,2)
-    plotFruitLayers(Tagg_MW(29:56,:), UW58, color_MW, 'accuracy', vAcc, MWx)
 
 %% Predict data
 
@@ -116,40 +114,70 @@ Pmw = [Tagg_MW.dE, Tagg_MW.dS, Tagg_MW.Tcorrect];
 [ r p ] = corrcoef(Tagg_MW.accpred, Tagg_MW.accuracy);
 [ r p ] = corrcoef(Tagg_MW.rtpred, Tagg_MW.resptime);
 
-figure (100)
-subplot(4,2,3)
+figure (7) %Cantaloupe/Strawberry
+
+%accuracy 
+subplot(4,2,3) %cantaloupe
     plotFruitLayers(Tagg_CS(1:28,:), UW58, color_CS, 'accpred', vAccPred, CSx)
 
-subplot(4,2,4)
+subplot(4,2,4) %strawberry
     plotFruitLayers(Tagg_CS(29:56,:), UW58, color_CS, 'accpred', vAccPred, CSx)
 
-subplot(4,2,7)
+%RT
+subplot(4,2,7) %cantaloupe
     plotFruitLayers(Tagg_CS(1:28,:), UW58, color_CS, 'rtpred', vRTPred, CSx)
 
-subplot(4,2,8)
+subplot(4,2,8) %strawberry
     plotFruitLayers(Tagg_CS(29:56,:), UW58, color_CS, 'rtpred', vRTPred, CSx)
  
 set(gcf,'Position',[1065         818         335         482]) 
 
 
-% Mango/Watermelon 
-figure (101)
-subplot(4,2,3)
+
+figure (8) %Mango/Watermelon
+
+%accuracy
+subplot(4,2,3) %mango
     plotFruitLayers(Tagg_MW(1:28,:), UW58, color_MW, 'accpred', vAccPred, MWx)
 
-subplot(4,2,4)
+subplot(4,2,4) %watermelon
     plotFruitLayers(Tagg_MW(29:56,:), UW58, color_MW, 'accpred', vAccPred, MWx)
 
-subplot(4,2,7)
+ %RT
+subplot(4,2,7) %mango
     plotFruitLayers(Tagg_MW(1:28,:), UW58, color_MW, 'rtpred', vRTPred, MWx)
 
-subplot(4,2,8)
+subplot(4,2,8) %watermelon
     plotFruitLayers(Tagg_MW(29:56,:), UW58, color_MW, 'rtpred', vRTPred, MWx)
     
 set(gcf,'Position',[1065         818         335         482]) 
     
 
-%% PLOT FRUIT LAYERS
+
+%% Calculate predicted data from logistic regression
+
+function [Ypred] = CalcPred(params, predictors, type)
+    
+    np = length(params);
+    
+    k = params(1);
+    betas = params(2:np);
+    
+    predZ = (predictors - mean(predictors,1))./std(predictors);
+    Linear =  k + sum(betas .* predZ, 2);
+    
+    if type == 'lin'
+        Ypred = Linear;
+    end
+    
+    if type == 'log'
+        Ypred = 1./(1 + exp(-(Linear)));
+    end 
+       
+end
+
+
+%% plotFruitLayers plots the fruit line graphs 
 function  plotFruitLayers(T, UW58, colorSet, v, vType, xTickLabels)
 
 Titles = {'Accuracy'; 'Semantic Distance'; 'Perceptual Distance'; 'RT'; 'Associaiton'; 'Predicted Accuracy'; 'Predicted RT'};
@@ -230,26 +258,5 @@ end
 
 end
 
-%% Calculate predicted data from logistic regression
 
-function [Ypred] = CalcPred(params, predictors, type)
-    
-    np = length(params);
-    
-    k = params(1);
-    betas = params(2:np);
-    
-    predZ = (predictors - mean(predictors,1))./std(predictors);
-    Linear =  k + sum(betas .* predZ, 2);
-    
-    if type == 'lin'
-        Ypred = Linear;
-    end
-    
-    if type == 'log'
-        Ypred = 1./(1 + exp(-(Linear)));
-    end 
-    
-    
-end
 
