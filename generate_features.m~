@@ -1,0 +1,33 @@
+function T = generate_features( T, fruit_lookup, color_lookup, color_coords, Ratings )
+
+%%% ELIMINATE: Tweak	NTstrongNTweak	dT	dNT	dTS_NTW	dNTS_TW axo	axoacc
+
+% association ratings between (Target,nonTarget) and (C1,C2)
+% here, we make sure to use the ColCond pair rather than C1 and C2
+% individually, so when there was a swap, we also swap C1 and C2.
+T = [T rowfun( @(obj,colpair) Ratings(fruit_lookup(obj),color_lookup(floor(colpair/10))), T,...
+    'InputVariables',{'targetobj','ColCond'},...
+    'OutputVariableNames',{'TC1'} ) ];
+
+T = [T rowfun( @(obj,colpair) Ratings(fruit_lookup(obj),color_lookup(mod(colpair,10))), T,...
+    'InputVariables',{'targetobj','ColCond'},...
+    'OutputVariableNames',{'TC2'} ) ];
+
+T = [T rowfun( @(obj,colpair) Ratings(fruit_lookup(3-obj),color_lookup(floor(colpair/10))), T,...
+    'InputVariables',{'targetobj','ColCond'},...
+    'OutputVariableNames',{'NTC1'} ) ];
+
+T = [T rowfun( @(obj,colpair) Ratings(fruit_lookup(3-obj),color_lookup(mod(colpair,10))), T,...
+    'InputVariables',{'targetobj','ColCond'},...
+    'OutputVariableNames',{'NTC2'} ) ];
+
+% split T1/T2 into Tstrong/Tweak for decision tree classification
+T.Tcorrect = (2-T.targetobj).*(T.TC1) + (T.targetobj-1).*(T.TC2);
+
+
+% color distance
+T = [T rowfun( @(col1,col2) norm(color_coords(color_lookup(col1),:)-color_coords(color_lookup(col2),:)), T,...
+    'InputVariables',{'C1','C2'},...
+    'OutputVariableName',{'colordistance'}) ];
+
+end
