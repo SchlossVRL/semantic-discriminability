@@ -10,11 +10,46 @@ Semantic discriminability is the degree to which observers can infer distinct ma
 
 ---
 
-`UW58Colors.mat`: stores the CIELAB coordinates for the UW-58 colors.
+`UW58Colors.mat`: Stores the CIELAB coordinates for the UW-58 colors.
 
-`Fruit.mat`: stores the data from the present experiment and color-concept associations from Rathore et al. (2020). The content is described in `Main.m`
+`Fruit.mat`: Stores the data from the present experiment and color-concept associations from Rathore et al. (2020). The content is described in `Main.m`
 
-`Main.m`: Run this Matlab file to load the data, create the .csv files used for analysis, and create the plots used to make the paper figures.
+`Main.m`: Run this Matlab file to load the data, create the .csv files used for analysis, and create the plots used to make the paper figures. It runs `FruitAssociations.m`, `PlotFruitLAB.m`, `FruitTable.m`, and `FruitLayers.m`.
+
+`FruitAssociations.m`: Plots color-concept associations for the colors and fruits tested in Exp 1 and Exp 2.
+
+`PlotFruitLAB`: Plots colors from Exp 1 and Exp 2 in CIELAB space.
+
+`FruitTable`: Organizes the data into tables and calculates semantic distance. Creates `CStable.csv` and `MWtable.csv`. Uses functions `generate_aggregations.m` and `generate_features.m`.
+
+`FruitLayers`: Plots the predictors, data, and regression predictions from Experiment 1 and Experiment 2.
+
+`CStable.csv`: stores the data from Experiment 1 and predictors used for analyses in `SemanticDisc.R`. Columns include:
+	subjnumber (participant number; 1-36)
+	rep (trial repetition; 1-3)
+	taretobj (1 = cantaloupe, 2 = strawberry)
+	C1 (color index for the color on the left)
+	C2 (color index for the color on the right)
+	response (1 = left, 2 = right)
+	resptime (response time)
+	ColCond *****
+	swap ******
+	newresp ******
+	accuracy (response accuracy, 1 = correct, 0 = incorrect)
+	TC1 (association strength between the target and color 1)
+	TC2 (associations strength between the target and color 2)
+	NTC1 (association strength between the non-target and color 1)
+	NTC2 (association strength between the non-target and color 2)
+	Tcorrect (association strength between the target and the correct color)
+	dE (delta E in CIELAB space)
+	dS (semantic distance)
+
+
+
+`MWtable.csv`: same as `CStable.csv` except in targetobj 1 = mango and 2 = watermelon.
+
+`SemanticDisc.R`: R script that runs mixed-effect logistic regressions and liner mixed-effect models on the experiment data. 
+
 
 
 
