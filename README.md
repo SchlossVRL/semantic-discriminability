@@ -32,7 +32,7 @@ Semantic discriminability is the degree to which observers can infer distinct ma
  - `subjnumber`: participant number, 1-36.
  - `rep`: trial repetition, 1-3.
  - `targetobj`: target object, 1 = cantaloupe, 2 = strawberry.
- - `C1`: color index for the color on the left.
+ - `C1`: color index for the color on the left. Mapping from color index to UW-58 color number is specified in `MAIN.m`.
  - `C2`: color index for the color on the right.
  - `response`: 1 = left, 2 = right.
  - `resptime`: response time in milliseconds.
