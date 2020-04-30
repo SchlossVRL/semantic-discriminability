@@ -24,25 +24,25 @@ Semantic discriminability is the degree to which observers can infer distinct ma
 
 `FruitLayers`: Plots the predictors, data, and regression predictions from Experiment 1 and Experiment 2.
 
-`CStable.csv`: stores the data from Experiment 1 and predictors used for analyses in `SemanticDisc.R`. Columns include:
-	subjnumber (participant number; 1-36)
-	rep (trial repetition; 1-3)
-	taretobj (1 = cantaloupe, 2 = strawberry)
-	C1 (color index for the color on the left)
-	C2 (color index for the color on the right)
-	response (1 = left, 2 = right)
-	resptime (response time)
-	ColCond *****
-	swap ******
-	newresp ******
-	accuracy (response accuracy, 1 = correct, 0 = incorrect)
-	TC1 (association strength between the target and color 1)
-	TC2 (associations strength between the target and color 2)
-	NTC1 (association strength between the non-target and color 1)
-	NTC2 (association strength between the non-target and color 2)
-	Tcorrect (association strength between the target and the correct color)
-	dE (delta E in CIELAB space)
-	dS (semantic distance)
+`CStable.csv`: stores the data from Experiment 1 and predictors used for analyses in `SemanticDisc.R`. Columns include:\
+	subjnumber (participant number; 1-36)\
+	rep (trial repetition; 1-3)\
+	taretobj (1 = cantaloupe, 2 = strawberry)\
+	C1 (color index for the color on the left)\
+	C2 (color index for the color on the right)\
+	response (1 = left, 2 = right)\
+	resptime (response time in ms.)\
+	ColCond *****\
+	swap ******\
+	newresp ******\
+	accuracy (response accuracy, 1 = correct, 0 = incorrect)\
+	TC1 (association strength between the target and color 1)\
+	TC2 (associations strength between the target and color 2)\
+	NTC1 (association strength between the non-target and color 1)\
+	NTC2 (association strength between the non-target and color 2)\
+	Tcorrect (association strength between the target and the correct color)\
+	dE (delta E in CIELAB space)\
+	dS (semantic distance)\
 
 
 
