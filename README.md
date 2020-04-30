@@ -1,3 +1,3 @@
 
 
-# Welcome
+# Semantic Discriminability for Visual Communication 
