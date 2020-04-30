@@ -5,6 +5,7 @@ setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 library(lme4)
 library(lmerTest)
 
+
 dCS <- read.csv('CStable.csv', sep = ",", header = TRUE)
 dMW <- read.csv('MWtable.csv', sep = ",", header = TRUE)
 
@@ -45,8 +46,8 @@ summary(modCS_t)
 modMW_t <- glmer( accuracy ~ PercDist_C + SemDist_C + Assoc_C + (1 + (PercDist_C + SemDist_C + Assoc_C) | subjnum), dMW, family="binomial", control=glmerControl(optimizer="bobyqa"))
 summary(modMW_t)
 
-#Exp 1 - Model RT 1.2 !!
-modCS_t_RT <- lmer( resptime ~ PercDist_C + SemDist_C + Assoc_C + (1 + (PercDist_C + SemDist_C + Assoc_C) | subjnum), dCS) 
+#Exp 1 - Model RT 1.2 
+modCS_t_RT <- lmer( resptime ~ PercDist_C + SemDist_C + Assoc_C + (1+ PercDist_C + SemDist_C + Assoc_C | subjnum), dCS)
 summary(modCS_t_RT)
 
 #Exp 2 - Model RT 2.2
