@@ -10,6 +10,12 @@ Semantic discriminability is the degree to which observers can infer distinct ma
 
 ---
 
+`UW58Colors.mat`: stores the CIELAB coordinates for the UW-58 colors.
+
+`Fruit.mat`: stores the data from the present experiment and color-concept associations from Rathore et al. (2020). The content is described in `Main.m`
+
+`Main.m`: Run this Matlab file to load the data, create the .csv files used for analysis, and create the plots used to make the paper figures.
+
 
 
 
