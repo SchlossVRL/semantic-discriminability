@@ -36,9 +36,7 @@ Semantic discriminability is the degree to which observers can infer distinct ma
  - `C2`: color index for the color on the right.
  - `response`: 1 = left, 2 = right.
  - `resptime`: response time in milliseconds.
- - `ColCond`: *****
- - `swap`: ******
- - `newresp`: ******
+ - `ColCond`, `swap`, `newresp`: intermediate quantities used for tracking left/right swapping of conditions.
  - `accuracy`: response accuracy, 1 = correct, 0 = incorrect.
  - `TC1`: association strength between the target and color 1.
  - `TC2`: association strength between the target and color 2.
