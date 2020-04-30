@@ -22,7 +22,7 @@ Semantic discriminability is the degree to which observers can infer distinct ma
 
 `FruitTable`: Organizes the data into tables and calculates semantic distance. Creates `CStable.csv` and `MWtable.csv`. Uses functions `generate_aggregations.m` and `generate_features.m`.
 
-`FruitLayers`: Plots the predictors, data, and regression predictions from Experiment 1 and Experiment 2.
+`FruitLayers`: Plots the predictors, data, and regression predictions from Exp 1 and Exp 2.
 
 `CStable.csv`: stores the data from Experiment 1 and predictors used for analyses in `SemanticDisc.R`. Columns include:\
 	subjnumber (participant number; 1-36)\
