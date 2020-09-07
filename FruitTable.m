@@ -18,7 +18,6 @@ conds = [p6(:) p5(:) p4(:) p3(:) p2(:) p1(:)];
 
 
 %% GENERATE TABLE WITH RESPONSES
-
 Ratings = mean(FruitAssoc,3)';
 
 % table with all conditions in it (same for both experiments)

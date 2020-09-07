@@ -1,4 +1,4 @@
-%% Plot color-concept association strengths for chosen fruits
+%% Plot color-concept association strengths for chosen fruits and colors
 
 
 %Experiment 1: Cantaloupe and Strawberry
@@ -9,8 +9,22 @@ FruitAssocBars(FruitAssoc, UW58.Lab, color_CS, fruit_CS, 'Cantaloupe', 'Strawber
 figure(2)
 FruitAssocBars(FruitAssoc, UW58.Lab, color_MW, fruit_MW, 'Mango', 'Watermelon')
 
+%% Plot color-concept associations chosen fruits and all colors
+figure(1001)
 
+clf
+FruitInds = [cInd, sInd, mInd, wInd];
+FruitNames = {'Cantaloup', 'Strawberry', 'Mango', 'Watermelon'};
 
+hold on
+for i = 1:4
+subplot(4,1,i)
+    PlotAssoc(FruitAssoc(:,FruitInds(i),:), FruitNames(i), UW58.Lab)
+end
+
+   
+set(gcf,'Position',[665   657   664   523]) 
+    
 %% FruitAssocBars function to make plots
 function [ ] = FruitAssocBars(Ratings, AllColors, Colors, Fruits, F1name, F2name)
 % Ratings is the data
